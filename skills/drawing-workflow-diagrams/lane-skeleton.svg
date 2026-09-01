@@ -1,0 +1,64 @@
+<!-- Swimlane skeleton. Copy into the page, then replace the sample lane's contents.
+     Geometry contract, per lane of height 240 starting at LANE_TOP:
+       row 1 (flow)        y = LANE_TOP + 24, h = 50
+       row 2 (deps/tables) y = LANE_TOP + 116, h = 44
+       gutter              LANE_TOP + 160 .. LANE_TOP + 240   <- keep empty: handoffs and failure loops route here
+     Rail 0..96 (lane names, text-anchor=end at x=92). Content 112..1168.
+     Marker ids must be unique per figure: a1/a1a/a1w, then a2/a2a/a2w, ... -->
+<svg class="dg" viewBox="0 0 1180 560" role="img"
+     aria-label="One-sentence claim this figure makes — same claim as the figcaption.">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="ah" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+    <marker id="a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="ah-a" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+    <marker id="a1w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="ah-w" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <!-- lane bands: tint alternating lanes only -->
+  <rect class="band" x="104" y="60" width="1064" height="240"/>
+  <line class="rule-d" x1="0" y1="60"  x2="1168" y2="60"/>
+  <line class="rule-d" x1="0" y1="300" x2="1168" y2="300"/>
+  <line class="rule-d" x1="0" y1="540" x2="1168" y2="540"/>
+
+  <text class="lane"   x="92" y="86"  text-anchor="end">LANE-NAME</text>
+  <text class="lane-s" x="92" y="100" text-anchor="end">RUNTIME</text>
+
+  <!-- row 1: the flow, left to right, 4-6 nodes, gap 20-26 -->
+  <rect class="node" x="112" y="84" width="170" height="50" rx="6"/>
+  <text class="t"  x="197" y="105" text-anchor="middle">Step title</text>
+  <text class="t2" x="197" y="121" text-anchor="middle">one qualifier</text>
+
+  <rect class="node" x="306" y="84" width="170" height="50" rx="6"/>
+  <text class="t"  x="391" y="105" text-anchor="middle">Next step</text>
+  <text class="t2" x="391" y="121" text-anchor="middle">one qualifier</text>
+
+  <line class="e-a" x1="282" y1="109" x2="302" y2="109" marker-end="url(#a1a)"/>
+
+  <!-- row 2: what row-1 nodes touch, directly under their owner -->
+  <rect class="db" x="112" y="176" width="170" height="44" rx="6"/>
+  <text class="tm" x="197" y="203" text-anchor="middle">table_name</text>
+  <line class="e" x1="197" y1="134" x2="197" y2="172" marker-end="url(#a1)"/>
+  <text class="el" x="203" y="164">INSERT</text>
+
+  <rect class="ext" x="306" y="176" width="170" height="44" rx="6"/>
+  <text class="t"  x="391" y="196" text-anchor="middle">External system</text>
+  <text class="t2" x="391" y="211" text-anchor="middle">what it does here</text>
+
+  <!-- boundary node straddles the divider: the queue IS the lane boundary -->
+  <rect class="ext" x="910" y="252" width="170" height="48" rx="6"/>
+  <text class="t"  x="995" y="273" text-anchor="middle">Queue / broker</text>
+  <text class="t2" x="995" y="289" text-anchor="middle">delivery semantics</text>
+
+  <!-- handoff into the next lane: route through the gutter, one label above the line -->
+  <polyline class="e-a" points="995,300 995,318 197,318 197,332" marker-end="url(#a1a)"/>
+  <text class="el" x="596" y="312" text-anchor="middle">how the next lane picks work up</text>
+
+  <!-- failure loop: one drop point, one horizontal y in the gutter, label 8px above -->
+  <polyline class="e-w" points="712,386 712,502 197,502 197,390" marker-end="url(#a1w)"/>
+  <text class="el-w" x="300" y="494">what happens when a step throws</text>
+</svg>

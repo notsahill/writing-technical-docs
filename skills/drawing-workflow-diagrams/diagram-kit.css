@@ -1,0 +1,147 @@
+/* Workflow-diagram house style — copy into the artifact page's <style> block.
+   Pair with:
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap"> */
+
+:root {
+  --ground:      #F2F4EF;   /* greenbar continuous-form paper */
+  --surface:     #FFFFFF;
+  --surface-2:   #FAFBF6;
+  --ink:         #191E1A;
+  --ink-2:       #56605A;
+  --rule:        #D7DED6;
+  --node-stroke: #B6C1B6;
+  --accent:      #2E6B4C;   /* success path — never decorative */
+  --accent-soft: #E3EDE5;
+  --amber:       #94590F;   /* failure / terminal exit — never decorative */
+  --amber-soft:  #F4E9D6;
+
+  --sans:  "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #121614; --surface: #1A201C; --surface-2: #202722;
+    --ink: #E7ECE6; --ink-2: #9AA69D; --rule: #2E3733; --node-stroke: #3E4A43;
+    --accent: #79C39A; --accent-soft: #1D2E25; --amber: #DEA362; --amber-soft: #2E2517;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #121614; --surface: #1A201C; --surface-2: #202722;
+  --ink: #E7ECE6; --ink-2: #9AA69D; --rule: #2E3733; --node-stroke: #3E4A43;
+  --accent: #79C39A; --accent-soft: #1D2E25; --amber: #DEA362; --amber-soft: #2E2517;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 56px 24px 88px;
+        display: flex; flex-direction: column; gap: 56px; }
+.prose { max-width: 68ch; }
+
+/* ── masthead ───────────────────────────────────────────────── */
+.mast { display: flex; flex-direction: column; gap: 18px; }
+.eyebrow { font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+           letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 5.2vw, 54px);
+     line-height: 1.06; letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+.deck { max-width: 62ch; font-size: 17.5px; color: var(--ink-2); margin: 0; }
+.facts { display: flex; flex-wrap: wrap; padding: 14px 0; margin-top: 6px;
+         border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.facts div { padding: 0 22px; border-left: 1px solid var(--rule);
+             font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.facts div:first-child { padding-left: 0; border-left: 0; }
+.facts b { display: block; font-family: var(--sans); font-weight: 600; font-size: 15px;
+           color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ── legend (one row, states the encoding once) ─────────────── */
+.legend { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center;
+          font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 9px; }
+.swatch { width: 26px; height: 14px; border-radius: 3px;
+          border: 1.25px solid var(--node-stroke); background: var(--surface); }
+.swatch.ext  { background: var(--surface-2); border-style: dashed; }
+.swatch.db   { background: var(--accent-soft); border-color: var(--accent); }
+.swatch.stop { background: var(--amber-soft); border-color: var(--amber); }
+.stroke { width: 26px; height: 0; border-top: 2px solid var(--accent); }
+.stroke.warn { border-top: 2px dashed var(--amber); }
+
+/* ── sections ───────────────────────────────────────────────── */
+section { display: flex; flex-direction: column; gap: 20px; }
+.kicker { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .14em;
+          text-transform: uppercase; color: var(--ink-2);
+          padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 27px; line-height: 1.2;
+     margin: 0; text-wrap: balance; }
+p { margin: 0; }  p + p { margin-top: 12px; }
+code { font-family: var(--mono); font-size: .88em; background: var(--surface-2);
+       border: 1px solid var(--rule); border-radius: 4px; padding: 1px 5px; }
+
+/* ── figure ─────────────────────────────────────────────────── */
+figure { margin: 0; background: var(--surface); border: 1px solid var(--rule);
+         border-radius: 10px; padding: 22px 22px 0; overflow-x: auto; }
+figcaption { font-family: var(--mono); font-size: 11.5px; line-height: 1.65; color: var(--ink-2);
+             border-top: 1px solid var(--rule); margin-top: 18px; padding: 13px 0 16px;
+             max-width: 96ch; }
+figcaption b { color: var(--ink); font-weight: 500; }
+
+/* ── the diagram itself ─────────────────────────────────────── */
+.dg { display: block; width: 100%; height: auto; min-width: 720px; color: var(--ink); }
+
+.dg .band   { fill: currentColor; opacity: .035; }          /* lane tint — connectors cross it */
+.dg .rule   { stroke: var(--rule); stroke-width: 1; }
+.dg .rule-d { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 3 4; }
+
+.dg .node { fill: var(--surface-2); stroke: var(--node-stroke); stroke-width: 1.25; }
+.dg .ext  { fill: var(--surface);   stroke: var(--node-stroke); stroke-width: 1.25; stroke-dasharray: 5 4; }
+.dg .db   { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.25; }
+.dg .stop { fill: var(--amber-soft);  stroke: var(--amber);  stroke-width: 1.25; }
+.dg .warn { fill: var(--surface);     stroke: var(--amber);  stroke-width: 1.25; stroke-dasharray: 5 4; }
+
+.dg .t      { fill: var(--ink);   font-family: var(--sans); font-size: 13px; font-weight: 500; }
+.dg .tm     { fill: var(--ink);   font-family: var(--mono); font-size: 12.5px; font-weight: 500; }
+.dg .t2     { fill: var(--ink-2); font-family: var(--mono); font-size: 10px; }
+.dg .lane   { fill: var(--ink-2); font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .07em; }
+.dg .lane-s { fill: var(--ink-2); font-family: var(--mono); font-size: 9px; letter-spacing: .05em; opacity: .8; }
+.dg .el     { fill: var(--ink-2); font-family: var(--mono); font-size: 10px; }
+.dg .el-w   { fill: var(--amber); font-family: var(--mono); font-size: 10px; }
+
+.dg .e   { stroke: var(--ink-2);  stroke-width: 1.4; fill: none; }   /* read / write / side call */
+.dg .e-a { stroke: var(--accent); stroke-width: 1.8; fill: none; }   /* success path */
+.dg .e-w { stroke: var(--amber);  stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; } /* failure */
+.dg .ah   { fill: var(--ink-2); }
+.dg .ah-a { fill: var(--accent); }
+.dg .ah-w { fill: var(--amber); }
+
+/* ── notes list (facts the picture can't carry) ─────────────── */
+.notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 86ch; }
+.notes li { display: grid; grid-template-columns: 130px 1fr; gap: 18px; align-items: baseline;
+            padding-bottom: 12px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.notes li:last-child { border-bottom: 0; padding-bottom: 0; }
+.notes .term { font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+               text-transform: uppercase; color: var(--accent); }
+.notes .term.warn { color: var(--amber); }
+
+/* ── source map table ───────────────────────────────────────── */
+.tbl-scroll { overflow-x: auto; }
+.src { width: 100%; border-collapse: collapse; font-size: 14px; }
+.src th { text-align: left; font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+          letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2);
+          padding: 0 16px 10px 0; border-bottom: 1px solid var(--rule); }
+.src td { padding: 11px 16px 11px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src td:first-child { font-family: var(--mono); font-size: 12px; color: var(--ink); white-space: nowrap; }
+.src td:last-child { color: var(--ink-2); }
+
+footer { font-family: var(--mono); font-size: 11px; color: var(--ink-2);
+         border-top: 1px solid var(--rule); padding-top: 18px; }
+
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

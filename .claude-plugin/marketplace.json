@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "drawing-workflow-diagrams",
+  "description": "A skill for turning architecture and workflow questions into hand-authored SVG diagrams on a published Artifact page.",
+  "owner": {
+    "name": "Sahil",
+    "url": "https://github.com/notsahill"
+  },
+  "plugins": [
+    {
+      "name": "drawing-workflow-diagrams",
+      "description": "Swimlane workflow diagrams, state machines and architecture maps as inline SVG, with a palette, layout geometry and the mechanics that keep them legible in both themes.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

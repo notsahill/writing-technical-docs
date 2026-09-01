@@ -1,0 +1,22 @@
+{
+  "name": "drawing-workflow-diagrams",
+  "description": "Draw workflow diagrams, state machines and architecture maps as hand-authored inline SVG on a published Artifact page. Ships an opinionated palette and type pairing, a swimlane geometry contract, and the SVG mechanics that keep a diagram legible in light and dark themes.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Sahil",
+    "url": "https://github.com/notsahill"
+  },
+  "homepage": "https://github.com/notsahill/drawing-workflow-diagrams",
+  "license": "Apache-2.0",
+  "keywords": [
+    "diagram",
+    "workflow",
+    "architecture",
+    "swimlane",
+    "state-machine",
+    "svg",
+    "artifact",
+    "hld",
+    "design-doc"
+  ]
+}
