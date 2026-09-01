@@ -1,15 +1,15 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "drawing-workflow-diagrams",
-  "description": "A skill for turning architecture and workflow questions into hand-authored SVG diagrams on a published Artifact page.",
+  "name": "writing-technical-docs",
+  "description": "Skills for producing engineering documents as Artifact pages: house style and content structure for design docs, LLDs and repo documentation, plus hand-authored SVG workflow diagrams.",
   "owner": {
     "name": "Sahil",
     "url": "https://github.com/notsahill"
   },
   "plugins": [
     {
-      "name": "drawing-workflow-diagrams",
-      "description": "Swimlane workflow diagrams, state machines and architecture maps as inline SVG, with a palette, layout geometry and the mechanics that keep them legible in both themes.",
+      "name": "writing-technical-docs",
+      "description": "Design docs, LLDs, RFCs and repo documentation as published Artifact pages \u2014 with an opinionated visual system, a content structure that leads with context rather than architecture, and swimlane diagrams drawn as inline SVG.",
       "source": "./",
       "category": "productivity"
     }

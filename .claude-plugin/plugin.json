@@ -1,22 +1,26 @@
 {
-  "name": "drawing-workflow-diagrams",
-  "description": "Draw workflow diagrams, state machines and architecture maps as hand-authored inline SVG on a published Artifact page. Ships an opinionated palette and type pairing, a swimlane geometry contract, and the SVG mechanics that keep a diagram legible in light and dark themes.",
-  "version": "0.1.0",
+  "name": "writing-technical-docs",
+  "description": "Two skills for engineering documentation. writing-technical-docs supplies the house style, page composition and content structure for design docs, LLDs, RFCs, runbooks and repo documentation. drawing-workflow-diagrams supplies swimlane geometry, encodings and inline-SVG mechanics for the diagrams inside them.",
+  "version": "0.2.0",
   "author": {
     "name": "Sahil",
     "url": "https://github.com/notsahill"
   },
-  "homepage": "https://github.com/notsahill/drawing-workflow-diagrams",
+  "homepage": "https://github.com/notsahill/writing-technical-docs",
   "license": "Apache-2.0",
   "keywords": [
+    "documentation",
+    "design-doc",
+    "lld",
+    "hld",
+    "rfc",
+    "architecture",
     "diagram",
     "workflow",
-    "architecture",
     "swimlane",
     "state-machine",
     "svg",
     "artifact",
-    "hld",
-    "design-doc"
+    "runbook"
   ]
 }
