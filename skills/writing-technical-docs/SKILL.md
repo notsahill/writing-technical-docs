@@ -11,7 +11,7 @@ A technical doc earns its place when a reader finishes it able to make a decisio
 
 This skill supplies the house style (palette, type, page composition) and the content structure for engineering documents. Diagrams have their own skill; this one decides when to call it.
 
-**REQUIRED BACKGROUND:** load `artifact-design` before writing the file.
+**REQUIRED BACKGROUND:** load `artifact-design` before writing any HTML or Artifact page. A Markdown file destined for the repo does not need it.
 
 **When a diagram would show a mechanism prose can't:** invoke `drawing-workflow-diagrams`. Data flowing between services, a request's state machine, a before/after of two designs, a retry path — those earn a picture. A three-box relationship a sentence covers does not.
 
@@ -30,7 +30,7 @@ Ask if it isn't stated. The content structure below is identical either way — 
 | Destination | Presentation |
 |---|---|
 | **Artifact page** — the default when someone wants a link to share | Author HTML, paste `doc-kit.css` into `<style>`, publish with the Artifact tool |
-| **A file in the repo** — `docs/`, an ADR, a README | Plain Markdown, no CSS. Follow the repo's existing conventions: heading depth, file naming, where ADRs live, how existing docs are structured |
+| **A file in the repo** — `docs/`, an ADR, a README | Plain Markdown, no CSS. Follow the repo's existing conventions: heading depth, file naming, where ADRs live, how existing docs are structured. Diagrams go in a ` ```mermaid ` fence — GitHub strips `<svg>` from Markdown, and repo convention does not override that |
 
 A repo-destined doc gets the same discipline: context before architecture, a real source map, invariants named, out-of-scope stated. Skipping that because "it's just a markdown file" is how `docs/` fills up with prose nobody trusts.
 
@@ -107,4 +107,4 @@ Two rules survive any rebrand: `--accent` means success or the recommended path 
 - [ ] Tables where three or more items share fields; prose only where it earns its place
 - [ ] Both themes resolve: no colour defined only inside a media or `[data-theme]` block; `body` background from a token
 - [ ] No "TBD", no empty sections, no placeholder text
-- [ ] Any diagram was drawn with `drawing-workflow-diagrams` and shows a mechanism, not an inventory
+- [ ] Any diagram was drawn with `drawing-workflow-diagrams`, in the format its destination allows, and shows a mechanism rather than an inventory
