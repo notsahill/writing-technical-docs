@@ -1,7 +1,7 @@
 {
   "name": "writing-technical-docs",
   "description": "Two skills for engineering documentation. writing-technical-docs supplies the house style, page composition and content structure for design docs, LLDs, RFCs, runbooks and repo documentation. drawing-workflow-diagrams supplies swimlane geometry, encodings and inline-SVG mechanics for the diagrams inside them.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": {
     "name": "Sahil",
     "url": "https://github.com/notsahill"

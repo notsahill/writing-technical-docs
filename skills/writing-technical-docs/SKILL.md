@@ -36,19 +36,16 @@ A repo-destined doc gets the same discipline: context before architecture, a rea
 
 ## Content structure
 
-Order by what the reader needs, not by how the code is laid out.
+The spine, in order:
 
-| Section | Carries |
-|---|---|
-| **Context** | Why this exists — the problem, what prompted it, what changes if nothing is done. First, always. A doc that opens with architecture makes the reader hold everything in suspense |
-| **The mechanism** | How it actually works: what calls what, what crosses a boundary, in what shape. Prose plus one diagram, not an inventory |
-| **Interfaces and contracts** | What each boundary promises. Payload shapes, endpoints, table schemas, event types |
-| **Invariants and failure modes** | What must stay true, what happens when it doesn't, who retries. The half most docs skip and every incident needs |
-| **Source map** | `path → what it does`. Engineers open this first, so make it a real table with real paths |
-| **Out of scope** | Named explicitly. Unstated scope is the most expensive ambiguity in a design doc |
-| **Open questions** | Each with the decision it blocks. "TBD" alone is not an open question |
+**Context · The mechanism · Interfaces and contracts · Invariants and failure modes · Source map · Out of scope · Open questions**
 
-Scale each section to its complexity — a sentence where a sentence suffices. Drop any section that has nothing true to say; an empty heading is worse than a missing one.
+Two of those carry the weight and are the two most often missing:
+
+- **Source map** — `path → what it does`, with real paths. Every claim's receipt lives here, and it is the first section engineers open.
+- **Invariants and failure modes** — what must stay true, what happens when it doesn't, who retries.
+
+Keep to roughly that many sections. A separate heading per concern — Configuration, Auth, Observability, Build, Deploy — turns a design doc into an inventory; fold those into the mechanism or the source map. Scale each section to its complexity, drop any with nothing true to say, and cut every sentence that only restates its heading.
 
 ## Common Mistakes
 
