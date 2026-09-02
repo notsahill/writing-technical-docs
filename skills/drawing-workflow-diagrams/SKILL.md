@@ -1,6 +1,6 @@
 ---
 name: drawing-workflow-diagrams
-description: Use when a diagram would show a mechanism prose cannot — a workflow or system flow, architecture or service map, swimlane of handoffs, state machine or lifecycle, retry and failure path, or a before/after comparison of two designs
+description: Use when drawing a figure that shows a mechanism prose cannot — a system or request flow, a swimlane of handoffs between services, a state machine or lifecycle, a retry or failure path, or a before/after of two designs. Covers the figure itself, whether it stands alone or sits inside a larger document
 ---
 
 # Drawing Workflow Diagrams
@@ -13,7 +13,7 @@ This skill supplies the layout geometry, the encodings, and the inline-SVG mecha
 
 **REQUIRED BACKGROUND:** load `artifact-diagramming` before writing any SVG.
 
-**The page around the diagram** — palette, type, `doc-kit.css`, page composition — belongs to `writing-technical-docs`. Load that skill for the page; this one for the picture. `diagram-kit.css` here holds only the `.dg` classes and reads that file's tokens.
+**This skill is the figure, not the page.** Palette, type, `doc-kit.css` and page composition belong to `writing-technical-docs` — load that for the document, this for the picture. A request to *document* an architecture is that skill's; a request to *draw* one is this skill's, and it usually arrives via that skill handing off. `diagram-kit.css` here holds only the `.dg` classes and reads the other file's tokens.
 
 ## When to Use
 
@@ -23,6 +23,17 @@ This skill supplies the layout geometry, the encodings, and the inline-SVG mecha
 - A before/after of two designs — draw the difference, not two disconnected boxes
 
 **Do not use for:** a three-box relationship a sentence covers; charts of quantitative data (use `dataviz`); UI mockups (use `design`).
+
+## Where the diagram lands
+
+Check the destination before drawing — it decides the format, and one of these is a hard platform limit.
+
+| Destination | Format |
+|---|---|
+| **Artifact page or any HTML** | Hand-authored inline `<svg>`, per everything below |
+| **A Markdown file in the repo** | GitHub and most Git hosts **strip `<svg>` from Markdown**. Use a ` ```mermaid ` fence, or commit a standalone `.svg` and reference it as an image |
+
+The encodings and "label every arrow" hold in every format. The geometry contract and the SVG mechanics below are specific to hand-authored inline SVG — a mermaid diagram gets its layout from the renderer, so spend the effort on labels and on drawing only what the argument turns on.
 
 ## Encodings
 

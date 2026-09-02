@@ -10,8 +10,8 @@ hand-authored SVG diagrams where a picture shows something the prose can't.
 
 | Skill | Fires on | Supplies |
 |---|---|---|
-| **writing-technical-docs** | design doc, LLD, HLD, RFC, repo or service documentation, onboarding guide, runbook | Content structure, page composition, the palette and type system (`doc-kit.css`) |
-| **drawing-workflow-diagrams** | a workflow, architecture map, swimlane, state machine, retry path, before/after | Swimlane geometry, encodings, inline-SVG mechanics (`diagram-kit.css`, `lane-skeleton.svg`) |
+| **writing-technical-docs** | design doc, LLD, HLD, RFC, repo or service documentation, onboarding guide, runbook — published as an Artifact page or written to a file in the repo | Content structure, page composition, the palette and type system (`doc-kit.css`) |
+| **drawing-workflow-diagrams** | a system or request flow, swimlane, state machine, retry path, before/after — the figure itself | Swimlane geometry, encodings, inline-SVG mechanics (`diagram-kit.css`, `lane-skeleton.svg`) |
 
 The first calls the second when a diagram is warranted. Either works alone.
 

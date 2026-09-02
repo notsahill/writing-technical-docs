@@ -1,6 +1,6 @@
 ---
 name: writing-technical-docs
-description: Use when asked for a technical document that will be published as an Artifact page — a design doc, LLD, HLD, RFC, architecture writeup, repo or service documentation, onboarding guide, runbook, or a written proposal an engineering team will read
+description: Use when writing a technical document — a design doc, LLD, HLD, RFC, architecture writeup, repo or service documentation, onboarding guide, runbook, or a written proposal an engineering team will read — whether it is published as an Artifact page or written to a file in the repo
 ---
 
 # Writing Technical Docs
@@ -22,6 +22,17 @@ This skill supplies the house style (palette, type, page composition) and the co
 - A written proposal or recommendation an engineering team will read and act on
 
 **Do not use for:** code comments and docstrings; a chat answer that fits in the terminal; user-facing marketing pages; slide decks.
+
+## Where the doc lands
+
+Ask if it isn't stated. The content structure below is identical either way — only presentation changes.
+
+| Destination | Presentation |
+|---|---|
+| **Artifact page** — the default when someone wants a link to share | Author HTML, paste `doc-kit.css` into `<style>`, publish with the Artifact tool |
+| **A file in the repo** — `docs/`, an ADR, a README | Plain Markdown, no CSS. Follow the repo's existing conventions: heading depth, file naming, where ADRs live, how existing docs are structured |
+
+A repo-destined doc gets the same discipline: context before architecture, a real source map, invariants named, out-of-scope stated. Skipping that because "it's just a markdown file" is how `docs/` fills up with prose nobody trusts.
 
 ## Content structure
 
@@ -52,6 +63,8 @@ Scale each section to its complexity — a sentence where a sentence suffices. D
 | "TBD", empty sections, placeholder text | Fill it or cut it before publishing |
 
 ## The style
+
+*Applies to HTML output. A Markdown file in the repo skips this section and the next entirely.*
 
 **Encodings carry meaning and stay fixed; hues and typefaces are a default you can swap.**
 
