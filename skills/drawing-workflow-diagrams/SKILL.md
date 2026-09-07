@@ -11,7 +11,7 @@ A diagram earns its place when it shows a **mechanism** a reader would otherwise
 
 This skill supplies the layout geometry, the encodings, and the inline-SVG mechanics that keep a hand-authored diagram from falling apart. What to draw is still your call.
 
-**REQUIRED BACKGROUND:** load `artifact-diagramming` before writing any SVG.
+**SVG tooling:** use the host's available diagram tooling when it has one. In a host that provides `artifact-diagramming`, load it before writing SVG. Otherwise follow the geometry and verification rules in this skill directly.
 
 **This skill is the figure, not the page.** Palette, type, `doc-kit.css` and page composition belong to `writing-technical-docs` — load that for the document, this for the picture. A request to *document* an architecture is that skill's; a request to *draw* one is this skill's, and it usually arrives via that skill handing off. `diagram-kit.css` here holds only the `.dg` classes and reads the other file's tokens.
 
@@ -30,7 +30,7 @@ Check the destination before drawing — it decides the format, and one of these
 
 | Destination | Format |
 |---|---|
-| **Artifact page or any HTML** | Hand-authored inline `<svg>`, per everything below |
+| **Any HTML page** | Hand-authored inline `<svg>`, per everything below |
 | **A Markdown file in the repo** | GitHub and most Git hosts **strip `<svg>` from Markdown**. Use a ` ```mermaid ` fence, or commit a standalone `.svg` and reference it as an image |
 
 The encodings and "label every arrow" hold in every format. The geometry contract and the SVG mechanics below are specific to hand-authored inline SVG — a mermaid diagram gets its layout from the renderer, so spend the effort on labels and on drawing only what the argument turns on.

@@ -1,6 +1,6 @@
 ---
 name: writing-technical-docs
-description: Use when writing a technical document — a design doc, LLD, HLD, RFC, architecture writeup, repo or service documentation, onboarding guide, runbook, or a written proposal an engineering team will read — whether it is published as an Artifact page or written to a file in the repo
+description: Use when writing a technical document — a design doc, LLD, HLD, RFC, architecture writeup, repo or service documentation, onboarding guide, runbook, or a written proposal an engineering team will read — whether it is published as HTML or written to a file in the repo
 ---
 
 # Writing Technical Docs
@@ -11,7 +11,7 @@ A technical doc earns its place when a reader finishes it able to make a decisio
 
 This skill supplies the house style (palette, type, page composition) and the content structure for engineering documents. Diagrams have their own skill; this one decides when to call it.
 
-**REQUIRED BACKGROUND:** load `artifact-design` before writing any HTML or Artifact page. A Markdown file destined for the repo does not need it.
+**HTML output:** use the host's available page or visualization tooling when it has one. In a host that provides `artifact-design`, load it before writing an HTML page. Otherwise create a standalone HTML file. A Markdown file destined for the repo does not need additional design tooling.
 
 **When a diagram would show a mechanism prose can't:** invoke `drawing-workflow-diagrams`. Data flowing between services, a request's state machine, a before/after of two designs, a retry path — those earn a picture. A three-box relationship a sentence covers does not.
 
@@ -29,7 +29,7 @@ Ask if it isn't stated. The content structure below is identical either way — 
 
 | Destination | Presentation |
 |---|---|
-| **Artifact page** — the default when someone wants a link to share | Author HTML, paste `doc-kit.css` into `<style>`, publish with the Artifact tool |
+| **HTML page** — the default when someone wants a designed, shareable page | Author standalone HTML, paste `doc-kit.css` into `<style>`, then save or publish it with the host's available page tooling |
 | **A file in the repo** — `docs/`, an ADR, a README | Plain Markdown, no CSS. Follow the repo's existing conventions: heading depth, file naming, where ADRs live, how existing docs are structured. Diagrams go in a ` ```mermaid ` fence — GitHub strips `<svg>` from Markdown, and repo convention does not override that |
 
 A repo-destined doc gets the same discipline: context before architecture, a real source map, invariants named, out-of-scope stated. Skipping that because "it's just a markdown file" is how `docs/` fills up with prose nobody trusts.
